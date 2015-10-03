@@ -1,5 +1,6 @@
 #!/bin/bash
 set -e
+set -x
 BRANCH=$(git rev-parse --abbrev-ref HEAD)
 git checkout origin/version
 git pull
