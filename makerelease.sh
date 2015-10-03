@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 set -x
-xsltproc --stringparam version $(date +"%T") setAndroidVersion.xsl config.xml.old > config.xml
+xsltproc --stringparam version $(date +"%s") setAndroidVersion.xsl config.xml.old > config.xml
 ./init.sh
 cordova build android --release
 cp platforms/android/build/outputs/apk/android-release-unsigned.apk .
