@@ -2,7 +2,7 @@
 set -e
 set -x
 mv config.xml config.xml.old
-xsltproc --stringparam version $(date +"%s") setAndroidVersion.xsl config.xml.old > config.xml
+xsltproc --stringparam version $(git log | wc -l) setAndroidVersion.xsl config.xml.old > config.xml
 ./init.sh
 cordova build android --release
 cp platforms/android/build/outputs/apk/android-release-unsigned.apk .
