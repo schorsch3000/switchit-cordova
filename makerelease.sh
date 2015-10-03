@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 set -x
-
+git pull
 git checkout origin/version
 git pull origin version
 ANDROID_VERSION=$(cat androidVersion)
