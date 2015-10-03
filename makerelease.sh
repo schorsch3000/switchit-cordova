@@ -1,6 +1,7 @@
 #!/bin/bash
 set -e
 set -x
+mv config.xml config.xml.old
 xsltproc --stringparam version $(date +"%s") setAndroidVersion.xsl config.xml.old > config.xml
 ./init.sh
 cordova build android --release
