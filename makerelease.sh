@@ -1,14 +1,14 @@
 #!/bin/bash
 set -e
 BRANCH=$(git rev-parse --abbrev-ref HEAD)
-git checkout version
+git checkout origin/version
 git pull
 ANDROID_VERSION=$(cat androidVersion)
 NEXT_ANDROID_VERSION=$(($ANDROID_VERSION + 1))
 echo $NEXT_ANDROID_VERSION >androidVersion
 git commit androidVersion -m "bump android version to $NEXT_ANDROID_VERSION"
 git push
-git checkout $BRANCH
+git checkout origin/$BRANCH
 echo $NEXT_ANDROID_VERSION >androidVersion
 mv config.xml config.xml.old
 xsltproc --stringparam version $NEXT_ANDROID_VERSION setAndroidVersion.xsl config.xml.old > config.xml
