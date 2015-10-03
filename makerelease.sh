@@ -8,7 +8,7 @@ ANDROID_VERSION=$(cat androidVersion)
 NEXT_ANDROID_VERSION=$(($ANDROID_VERSION + 1))
 echo $NEXT_ANDROID_VERSION >androidVersion
 git commit androidVersion -m "bump android version to $NEXT_ANDROID_VERSION"
-git push
+git push origin version
 git checkout origin/$BRANCH
 echo $NEXT_ANDROID_VERSION >androidVersion
 mv config.xml config.xml.old
