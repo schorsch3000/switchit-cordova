@@ -1,8 +1,9 @@
 #!/bin/bash
 set -e
+set -x
 BRANCH=$(git rev-parse --abbrev-ref HEAD)
 git checkout origin/version
-git pull
+git pull origin version
 ANDROID_VERSION=$(cat androidVersion)
 NEXT_ANDROID_VERSION=$(($ANDROID_VERSION + 1))
 echo $NEXT_ANDROID_VERSION >androidVersion
